@@ -1,7 +1,5 @@
 language: python
 install: pip install tox-travis
-script:
-    ./build.sh
 deploy:
   provider: pypi
   user: "$PYNAME"
