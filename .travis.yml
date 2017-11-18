@@ -1,5 +1,4 @@
 language: python
 install: pip install tox-travis
-script: 
-    python setup.py bdist_wheel
-    twine upload dist/* -u "$PYNAME" -p "$PYPWD"
+script:
+    ./build.sh
