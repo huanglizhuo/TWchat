@@ -1,3 +1,8 @@
+language: python
+
+python:
+  - "2.7"
+
 deploy:
   provider: pypi
   user: PYNAME
