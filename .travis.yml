@@ -1,7 +1,7 @@
 language: python
-script:
-python setup.py bdist_wheel
+install: pip install tox-travis
+script: tox -e travis
 deploy:
   provider: pypi
-  user: PYNAME
-  password: PYPWD
+  user: "$PYNAME"
+  password: "$PYPWD"
