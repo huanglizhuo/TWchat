@@ -1,5 +1,7 @@
 language: python
 install: pip install tox-travis
+script:
+    python setup.py bdist_wheel
 deploy:
   provider: pypi
   user: "$PYNAME"
