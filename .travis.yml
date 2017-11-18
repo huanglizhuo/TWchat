@@ -7,5 +7,3 @@ deploy:
   provider: pypi
   user: PYNAME
   password: PYPWD
-  on:
-    tags: true
