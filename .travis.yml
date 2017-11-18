@@ -1,7 +1,5 @@
 language: python
 install: pip install tox-travis
-script: tox -e travis
-deploy:
-  provider: pypi
-  user: "$PYNAME"
-  password: "$PYPWD"
+script: 
+    python setup.py bdist_wheel
+    twine upload dist/* -u "$PYNAME" -p "$PYPWD"
