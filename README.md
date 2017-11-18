@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/huanglizhuo/TWchat.svg?branch=master)](https://travis-ci.org/huanglizhuo/TWchat)
+[![PyPI version](https://badge.fury.io/py/TWchat.svg)](https://badge.fury.io/py/TWchat) [![Build Status](https://travis-ci.org/huanglizhuo/TWchat.svg?branch=master)](https://travis-ci.org/huanglizhuo/TWchat)
 
 ```Text
  _____ _    _ _____  _   _   ___ _____ 
