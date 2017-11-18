@@ -104,3 +104,4 @@ class MessageListBox(urwid.ListBox):
             newline.set_align_mode('left')
             box=urwid.AttrMap(urwid.LineBox(newline),'tobg')
         self.body.append(box)
+        self.focus_position=len(self.body)-1

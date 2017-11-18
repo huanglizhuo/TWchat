@@ -16,7 +16,7 @@ from setuptools import setup, find_packages
 
 setup(
     name='TWchat',
-    version='0.2.4.1',
+    version='0.0.3',
     packages=find_packages(),
     install_requires=[
         'itchat',
@@ -32,6 +32,7 @@ setup(
     license='MIT',
     author='huanglizhuo',
     author_email='huanglizhuo1991@gmail.com',
+    url='https://github.com/huanglizhuo/TWchat',
     description='A Geek style client for WeChat',
     keywords=['wechat', 'Geek', 'cli', 'terminal'],
 )

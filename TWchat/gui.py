@@ -11,6 +11,7 @@ class WechatMain(object):
         self.sendButton = urwid.Button("send")
         self.inputBox = urwid.Edit(multiline=True)
         self.current_chat_from="" 
+        self.owner_id=""
         self.palette=palette
         self.loop=None
     def initUserInfo(self,owner_id,owner_name,on_contact_item_click,on_chat_item_click,contactlist=[],chatlist=[]):
