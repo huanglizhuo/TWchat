@@ -15,10 +15,22 @@
 
 [itchat](https://github.com/littlecodersh/ItChat) (A complete and graceful API for Wechat) 访问微信网页版API
 
+目前在 macOS 上进行开发
+
+理论上讲所有 Unix-like 均可用 (如有问题请提issue)
+
 ## how to install 
 
 ```
 pip install TWchat -U
+```
+
+install mpg123
+ 
+### macOS
+
+```
+brew install mpg123
 ```
 
 ## how to use
@@ -33,10 +45,14 @@ twchat
 ALT+q  exit twchat
 ```
 
+语音消息需要安装mpg123
+
+支持图片 语音消息 该类型消息默认会存储到 HOME 目录的 .twchat
+
 ### Todo
 
 - [ ] 添加消息提示
-- [ ] 支持图片语音消息
+- [x] 支持图片语音消息
 - [ ] 支持联系人搜索
 - [x] 完成基本文字聊天
 
