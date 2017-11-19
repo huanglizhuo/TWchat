@@ -15,6 +15,8 @@
 
 [itchat](https://github.com/littlecodersh/ItChat) (A complete and graceful API for Wechat) 访问微信网页版API
 
+![demo](./demo.gif "demo")
+
 目前在 macOS 上进行开发
 
 理论上讲所有 Unix-like 均可用 (如有问题请提issue)
@@ -56,4 +58,3 @@ ALT+q  exit twchat
 - [ ] 支持联系人搜索
 - [x] 完成基本文字聊天
 
-![demo](./demo.gif "demo")
