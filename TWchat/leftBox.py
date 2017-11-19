@@ -69,39 +69,3 @@ class ChatListBox(urwid.ListBox):
         nickname = contact['RemarkName'] if contact['RemarkName'] else contact['NickName']
         urwid.connect_signal(newline,'click',clickFun,[contact['UserName'],nickname])
         self.body.append(urwid.LineBox(newline))
-
-class MessageListBox(urwid.ListBox):
-    def __init__(self,userName="",msgList=[]):
-        self.pos=0
-        self.owner =userName
-        self.fromUser=""
-        self.msgList=msgList
-        self.currentChat=''
-        self.body = urwid.SimpleFocusListWalker([])
-        super(MessageListBox,self).__init__(self.body)
-    def bindList(self,msgList):
-        self.msgList=msgList
-        self.refresh()
-    def refresh(self):
-        del self.body[:]
-        for msg in self.msgList:
-            self.addMessage(msg,False)
-    def clear(self):
-        del self.body[:]
-        del self.msgList[:]
-    def getCurrentMsgFrom(self):
-        return self.fromUser
-    def addMessage(self,msg,addtoList=True):
-        if addtoList:
-            self.msgList.append(msg)
-        newline = urwid.Text(msg['Text'])
-        self.fromUser = msg['FromUserName']
-        alig = 'right' if msg['FromUserName']==self.owner else 'left'
-        if msg['FromUserName']==self.owner:
-            newline.set_align_mode('right')
-            box=urwid.AttrMap(urwid.LineBox(newline),'mybg')
-        else:
-            newline.set_align_mode('left')
-            box=urwid.AttrMap(urwid.LineBox(newline),'tobg')
-        self.body.append(box)
-        self.focus_position=len(self.body)-1

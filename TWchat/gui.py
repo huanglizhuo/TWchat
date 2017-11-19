@@ -1,7 +1,8 @@
 # -*- coding: UTF-8
 import urwid
 from urwid import raw_display
-import listBox 
+import leftBox 
+import mbox
 
 screenCols, screenRows = raw_display.Screen().get_cols_rows()
 class WechatMain(object):
@@ -17,8 +18,8 @@ class WechatMain(object):
     def initUserInfo(self,owner_id,owner_name,on_contact_item_click,on_chat_item_click,contactlist=[],chatlist=[]):
         self.owner_id=owner_id
         self.owner_name = owner_name
-        self.messageListBox = listBox.MessageListBox(self.owner_id)
-        self.chatListBox = listBox.ChatListBox(owner_id,on_contact_item_click,on_chat_item_click,contactlist,True)
+        self.messageListBox = mbox.MessageListBox(self.owner_id)
+        self.chatListBox = leftBox.ChatListBox(owner_id,on_contact_item_click,on_chat_item_click,contactlist,True)
     def bind_itchat(self,itchat):
         self.itchat=itchat
     def createLoop(self):
@@ -88,6 +89,7 @@ def create_msg(fromUserName,toUserName,text):
     newMsg['User']={}
     newMsg['User']['UserName']=toUserName
     newMsg['Text']=text
+    newMsg['type']='Text'
     return newMsg
 def wrapButton(button):
     button = urwid.LineBox(button)
@@ -97,4 +99,3 @@ def wrapEdit(edit):
 def exit_on_alt_q(key):
     if key in (u'œ',u'Œ'):
         raise urwid.ExitMainLoop()
-
