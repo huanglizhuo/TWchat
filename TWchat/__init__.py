@@ -3,7 +3,10 @@ import os
 import gui as wegui
 from itchat.content import *
 import itchat
- 
+import sys
+reload(sys)
+sys.setdefaultencoding("utf-8")
+
 def get_contact_name(msg):
     return msg['User']['RemarkName'] if msg['User']['RemarkName'] else msg['User']['NickName']
 def get_group_name(msg):
@@ -21,7 +24,7 @@ def get_group_name(msg):
 def notify(title, text):
     os.system("""
               osascript -e 'display notification "{}" with title "{}"'
-              """.format(text, title))
+              """.format(unicode(text), unicode(title)))
 def start():
     @itchat.msg_register([TEXT, MAP, CARD, NOTE, SHARING,PICTURE, RECORDING, ATTACHMENT, VIDEO,FRIENDS])
     def recive_contact_msg(msg):
