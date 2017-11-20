@@ -28,18 +28,18 @@ def start():
     @itchat.msg_register([TEXT, MAP, CARD, NOTE, SHARING,PICTURE, RECORDING, ATTACHMENT, VIDEO,FRIENDS])
     def recive_contact_msg(msg):
         contact_name = get_contact_name(msg)
-        notify('TWchat',"new message from: "+contact_name)
         try:
             wechatMain.recive_message(msg,contact_name)
+            notify('TWchat',"new message from: "+contact_name)
         except AttributeError:
             pass
     
     @itchat.msg_register(TEXT, isGroupChat=True)
     def recive_group_msg(msg):
         group_name = get_group_name(msg)
-        notify('TWchat',"new message from: "+group_name)
         try:
             wechatMain.recive_message(msg,group_name)
+            notify('TWchat',"new message from: "+group_name)
         except AttributeError:
             pass
         return   

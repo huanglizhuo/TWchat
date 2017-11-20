@@ -73,15 +73,15 @@ class WechatMain(object):
         msgList = self.chatListBox.get_chat_message(chat_id)
         self.messageListBox.bindList(msgList)
         self.loop.draw_screen()
-    def recive_message(self,msg,chat_name):
-        if msg['FromUserName']==self.owner_id:
+    def recive_message(self,msg,chat_name,is_group=False):
+        if msg['User']['UserName']==self.owner_id:
             self.chatListBox.add_chat_by_msg(msg['User']['UserName'],self.currentchat_name,msg)
             self.set_current_chat(self.current_chat_from,self.currentchat_name)
             return
-        self.chatListBox.add_chat_by_msg(msg['FromUserName'],chat_name,msg)
-        if not self.current_chat_from or self.current_chat_from==msg['FromUserName']:
+        self.chatListBox.add_chat_by_msg(msg['User']['UserName'],chat_name,msg)
+        if not self.current_chat_from or self.current_chat_from==msg['User']['UserName']:
 #            self.chatListBox.show_chat()
-            self.set_current_chat(msg['FromUserName'],chat_name)
+            self.set_current_chat(msg['User']['UserName'],chat_name)
         self.loop.draw_screen()
 def create_msg(fromUserName,toUserName,text):
     newMsg={}
