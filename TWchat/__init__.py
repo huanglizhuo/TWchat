@@ -11,7 +11,6 @@ def get_contact_name(msg):
     return msg['User']['RemarkName'] if msg['User']['RemarkName'] else msg['User']['NickName']
 def get_group_name(msg):
     group_name=""
-    print(msg)
     if not msg['User']['NickName']:
         for member in msg['User']['MemberList']:
             group_name+=member['NickName']
