@@ -30,9 +30,8 @@ class MessageListBox(urwid.ListBox):
         alig = 'right' if msg['FromUserName']==self.owner else 'left'
         bg= 'mybg' if msg['FromUserName']==self.owner else 'tobg'
         if not hasattr(msg,'type'):
-            #self create msg has no type
             newline = urwid.Text(msg['Text'])
-            newline.set_align_mode('right')
+            newline.set_align_mode(alig)
             box=urwid.AttrMap(urwid.LineBox(newline),bg)
             return box
         if msg.type is 'Text':
@@ -46,7 +45,7 @@ class MessageListBox(urwid.ListBox):
         else:
             txt = str(msg.type)+" is not supported yet please check this on your phone"
             newline = urwid.Text(txt)
-        newline.set_align_mode('right')
+        newline.set_align_mode(alig)
         box=urwid.AttrMap(urwid.LineBox(newline),bg)
         return box
     def download(self,msg):
