@@ -49,9 +49,10 @@ ALT+q  exit twchat
 
 ### Todo
 
-- [ ] 添加消息提示
-- [x] 支持图片语音消息
+- [ ] 添加未读消息提示
+- [ ] 添加主题配置
 - [ ] 支持联系人搜索
+- [x] 支持图片语音消息
 - [x] 完成基本文字聊天
 
 [urwid](https://github.com/urwid/urwid) (Console user interface library for Python) 绘制界面
