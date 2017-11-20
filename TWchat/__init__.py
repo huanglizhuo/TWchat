@@ -4,6 +4,7 @@ import gui as wegui
 from itchat.content import *
 import itchat
 import sys
+from pypinyin import lazy_pinyin
 reload(sys)
 sys.setdefaultencoding("utf-8")
 
@@ -77,10 +78,19 @@ def start():
     owner_name = userInfo['NickName']
     contactlist= itchat.get_friends(update=True)
     chatlist = itchat.get_chatrooms()
-    contactlist = sorted(contactlist,key=lambda x:(x['RemarkPYInitial'],x['PYInitial']))
+    #contactlist = sorted(contactlist,key=lambda x:(x['RemarkPYInitial'],x['PYInitial']))
+    contactlist = sorted(contactlist,key=lambda x:(lazy_pinyin(get_name(x))))
     wechatMain.initUserInfo(owner_id,owner_name,on_contact_item_click,on_chat_item_click,contactlist,chatlist)
     wechatMain.bind_itchat(itchat)
     wechatMain.createLoop()
+
+def get_name(contact):
+    name = ''
+    if not contact['RemarkName']:
+        name = contact['NickName']
+    else:
+        name = contact['RemarkName']
+    return name.lower()
 
 if __name__ == '__main__':
     start()

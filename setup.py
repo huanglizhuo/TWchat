@@ -22,6 +22,7 @@ setup(
         'itchat',
         'urwid',
         'Pillow',
+        'pypinyin',
     ],
 
     entry_points={
