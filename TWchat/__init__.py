@@ -40,7 +40,7 @@ def start():
         group_name = get_group_name(msg)
         notify('TWchat',"new message from: "+group_name)
         try:
-            wechatMain.recive_message(msg,contact_name)
+            wechatMain.recive_message(msg,group_name)
         except AttributeError:
             pass
         return   
