@@ -11,11 +11,7 @@
 
 命令行下的微信客户端
 
-[urwid](https://github.com/urwid/urwid) (Console user interface library for Python) 绘制界面
-
-[itchat](https://github.com/littlecodersh/ItChat) (A complete and graceful API for Wechat) 访问微信网页版API
-
-![demo](./demo.gif "demo")
+![demo](./TWchat/demo.gif "demo")
 
 目前在 macOS 上进行开发
 
@@ -58,3 +54,6 @@ ALT+q  exit twchat
 - [ ] 支持联系人搜索
 - [x] 完成基本文字聊天
 
+[urwid](https://github.com/urwid/urwid) (Console user interface library for Python) 绘制界面
+
+[itchat](https://github.com/littlecodersh/ItChat) (A complete and graceful API for Wechat) 访问微信网页版API
