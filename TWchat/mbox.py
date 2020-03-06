@@ -29,13 +29,17 @@ class MessageListBox(urwid.ListBox):
     def create_text_line(self,msg):
         alig = 'right' if msg['FromUserName']==self.owner else 'left'
         bg= 'mybg' if msg['FromUserName']==self.owner else 'tobg'
+        try:
+            groupMsgPrefix = msg['ActualNickName'] + ": "
+        except:
+            groupMsgPrefix = ""
         if not hasattr(msg,'type'):
             newline = urwid.Text(msg['Text'])
             newline.set_align_mode(alig)
             box=urwid.AttrMap(urwid.LineBox(newline),bg)
             return box
         if msg.type is 'Text':
-            newline = urwid.Text(msg['Text'])
+            newline = urwid.Text(groupMsgPrefix + msg['Text'])
         elif msg.type is 'Recording':
             name = self.download(msg)
             newline = mtxt.RecodingText(name)
@@ -55,5 +59,5 @@ class MessageListBox(urwid.ListBox):
         else:
             os.mkdir(path)
         msg.download(path+msg.fileName)
-        return path+msg.fileName 
+        return path+msg.fileName
 
